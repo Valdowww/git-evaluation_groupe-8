@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+import sys
+
+def calc(expr):
+    expr = expr.strip()
+    try:
+        if '/' in expr and expr.split('/')[1].strip() == '0':
+            print("Division par zéro")
+            return 1
+        result = eval(expr)
+        if isinstance(result, float):
+            result = round(result, 2)
+        print(result)
+        return 0
+    except:
+        print(f'Erreur de syntaxe pour le calcul: "{expr}"')
+        return 1
+
+def main():
+    if sys.stdin.isatty():
+        while True:
+            try:
+                s = input('> ')
+            except EOFError:
+                print("Fin des calculs")
+                break
+            if calc(s) != 0:
+                sys.exit(1)
+    else:
+        status = 0
+        for line in sys.stdin:
+            ret = calc(line)
+            if ret != 0:
+                status = ret
+        sys.exit(status)
+
+if __name__ == "__main__":
+    main()

@@ -20,3 +20,5 @@ done
 
 ## Références
 - [Python docs](https://docs.python.org/3/)
+- learngitbranching.js.org
+- https://rogerdudler.github.io/git-guide/index.fr.html

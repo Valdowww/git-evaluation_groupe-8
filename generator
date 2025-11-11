@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+import sys, random
+
+n = int(sys.argv[1])
+ops = ['+', '-', '*', '/']
+
+for _ in range(n):
+    a = random.randint(1, 1000)
+    b = random.randint(1, 1000)
+    op = random.choice(ops)
+    if op == '/':
+        b = random.randint(1, 1000)  # éviter 0
+    print(f"{a}{op}{b}")
